@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PagesController!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1>Blog</h1>
+    {% for blogpost in blogposts %}
+    <div class="row">
+        <div class="col-md-12"><h2>{{blogpost.title}}</h2></div>
+        <div class="col-md-8">{{blogpost.content}}</div>
+        <div class="col-md-4">
+            <ul>
+                <li>Author: {{blogpost.author}}</li>
+                <li>Created At: {{blogpost.createdAt|date("m/d/Y")}}</li>
+                <li>Last Updated At: {{blogpost.updatedAt|date("m/d/Y")}}</li>
+                {% if app.user is same as blogpost.author %}
+                <li><a href="/blogpost/{{blogpost.id}}/edit">Edit</a> <a href="/blogpost/{{blogpost.id}}/delete">Delete</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
