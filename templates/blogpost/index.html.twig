@@ -29,7 +29,10 @@
                 <td>{{ blogpost.UpdatedAt ? blogpost.UpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('app_blogpost_show', {'id': blogpost.id}) }}">show</a>
-                    <a href="{{ path('app_blogpost_edit', {'id': blogpost.id}) }}">edit</a>
+                    {% if blogpost.Author is same as app.user %}
+                        <a href="{{ path('app_blogpost_edit', {'id': blogpost.id}) }}">edit</a>
+                        <a href="{{ path('app_blogpost_delete', {'id': blogpost.id}) }}">delete</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
