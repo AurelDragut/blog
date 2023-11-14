@@ -13,6 +13,7 @@
                 <th>Title</th>
                 <th>Content</th>
                 <th>Author</th>
+                <th>Published</th>
                 <th>CreatedAt</th>
                 <th>UpdatedAt</th>
                 <th>actions</th>
@@ -25,6 +26,7 @@
                 <td>{{ blogpost.Title }}</td>
                 <td>{{ blogpost.Content }}</td>
                 <td>{{ blogpost.Author }}</td>
+                <td>{{ blogpost.published }}</td>
                 <td>{{ blogpost.CreatedAt ? blogpost.CreatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ blogpost.UpdatedAt ? blogpost.UpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>

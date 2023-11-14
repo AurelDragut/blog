@@ -29,6 +29,9 @@ class Blogpost
     #[ORM\Column]
     private ?\DateTimeImmutable $UpdatedAt = null;
 
+    #[ORM\Column]
+    private ?bool $published = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,18 @@ class Blogpost
     public function setUpdatedAt(\DateTimeImmutable $UpdatedAt): static
     {
         $this->UpdatedAt = $UpdatedAt;
+
+        return $this;
+    }
+
+    public function isPublished(): ?bool
+    {
+        return $this->published;
+    }
+
+    public function setPublished(bool $published): static
+    {
+        $this->published = $published;
 
         return $this;
     }

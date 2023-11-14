@@ -18,7 +18,7 @@ class PagesController extends AbstractController
     #[Route('/', name: 'app_homepage')]
     public function index(BlogpostRepository $blogpostRepository): Response
     {
-        $blogposts = $blogpostRepository->findAll();
+        $blogposts = $blogpostRepository->findBy(['published' => 1]);
         return $this->render('pages/index.html.twig', [
             'blogposts' => $blogposts,
         ]);

@@ -13,11 +13,10 @@ class BlogpostType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $now = new \DateTimeImmutable('now');
-        $now = $now->format('Y-m-d H:i:s');
         $builder
             ->add('Title')
             ->add('Content')
+            ->add('published')
         ;
     }
 
